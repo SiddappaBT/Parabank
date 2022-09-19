@@ -1,0 +1,33 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class PARABANK {
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.geckodriver", "/driver/geckoedriver.exe");
+		FirefoxDriver driver = new FirefoxDriver();
+		
+		driver.get("https://parabank.parasoft.com/parabank/index.htm");
+		
+		//maximize window
+		driver.manage().window().maximize();
+		
+		//print the current Url
+		System.out.println(driver.getCurrentUrl());
+		
+		//print Title of the webpage
+		System.out.println(driver.getTitle());
+		
+		//pass the input value on user name field
+		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("PARABANK");
+		
+		//pass the input on password field
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Parabank@2000");
+		
+		//click on log in button
+		driver.findElement(By.xpath("//input[@value='Log In']")).click();
+		
+
+}
+}
